@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
-
+  constructor(public afAuth: AngularFireAuth) {
+      this.afAuth.auth.signInWithEmailAndPassword("ryv@mail.com", "ryvangu").then(()=>{
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
 }

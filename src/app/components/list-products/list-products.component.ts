@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ListProductsComponent implements OnInit {
   title = 'RyV';
   dataSource:any;
-  constructor(public afdb: AngularFireDatabase, private router: Router){
+  constructor(public afdb: AngularFireDatabase, private router: Router, public afAuth: AngularFireAuth){
     this.afdb.list("productos").valueChanges().subscribe((data)=>{
         this.initializeItems(data);
     });
