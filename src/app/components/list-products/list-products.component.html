@@ -1,0 +1,48 @@
+<div class="title">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+<button mat-raised-button color="primary" id="createProductButton" (click)="createProduct()">Crear Producto</button>
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Escribir aqui para buscar...">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+     <!-- Name Column -->
+     <ng-container matColumnDef="name">
+       <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+       <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+     </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="price">
+       <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+       <mat-cell *matCellDef="let element"> Gs. {{element.precio_1}} </mat-cell>
+     </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<!-- <mat-grid-list cols="1" rowHeight="10:1">
+  <mat-grid-tile>
+    <mat-form-field>
+      <input type="search" matInput placeholder="Escribir aqui para buscar...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list> -->
+
+<!-- <mat-form-field>
+  <mat-select placeholder="I'm a select" [(ngModel)]="selectedValue">
+    <mat-option *ngFor="let product of products" [value]="item.nombre">
+      {{item.nombre}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->

@@ -1,0 +1,12 @@
+<form>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Nombre" (keyup)="nameOnchange($event)" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Precio" (keyup)="priceOnchange($event)" required>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" id="saveProductButton" (click)="saveProduct()">Guardar</button>
+  <button mat-raised-button color="primary" id="cancelProductButton" (click)="cancel()">Cancelar</button>
+</form>
