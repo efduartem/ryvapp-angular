@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import {APP_BASE_HREF} from '@angular/common';
 import { AppComponent } from './app.component';
 import { MatInputModule,
           MatButtonModule,
@@ -14,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
 //Routes
@@ -45,6 +48,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
@@ -54,7 +58,7 @@ export const firebaseConfig = {
     MatGridListModule,
     MatTableModule
   ],
-  providers: [AngularFireDatabase],
+  providers: [AngularFireDatabase, AngularFireAuth, {provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

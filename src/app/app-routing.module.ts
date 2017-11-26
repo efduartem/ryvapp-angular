@@ -7,7 +7,9 @@ import { CreateProductComponent } from './components/create-product/create-produ
 const routes: Routes = [
    {path: '', component: ListProductsComponent},
    {path: 'home', component: ListProductsComponent},
-   {path: 'createProduct', component: CreateProductComponent}
+   {path: 'createProduct', component: CreateProductComponent},
+   {path: '**', pathMatch: 'full', redirectTo: 'home' },
+   { path: '',  redirectTo: 'home', pathMatch: 'full' }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
